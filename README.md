@@ -1,1 +1,932 @@
-# lucie-bday
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Joyeux anniversaire Lucinda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat:wght@500;700&family=Figtree:wght@400;500;700&display=swap">
+<style>
+[hidden] { display: none !important; }
+body { margin: 0; }
+img { max-width: 100%; }
+:root {
+  /* Layout: one portrait card on a polka-dot tabletop. A hot-pink cover swings open to a paper page with a candle cake, tabs for wish, note, millions and album, and an editable name. */
+  --bg: #FFE6F1; --dot-a: #FFD0E4; --dot-b: #C7F3F0;
+  --paper: #FFFBFD; --rule: #F7D7E6; --note-bg: #FFF3F8;
+  --ink: #3B1030; --ink-soft: #7B4A6B;
+  --pink: #FF4C9C; --pink-soft: #FFD6E8; --accent-text: #C91769;
+  --turq: #12C4BD; --turq-soft: #CFF6F3; --turq-text: #0A7270;
+  --btn-a-bg: #D61C73; --btn-a-fg: #FFFFFF;
+  --btn-b-bg: #12C4BD; --btn-b-fg: #05322F;
+  --cover: #F2358C; --cover-ink: #FFFFFF; --cover-shadow: #0A9C9A;
+  --flame: #FFC52E; --flame-core: #FFF4C4; --flame-edge: #F29A00;
+  --cake-top: #FF6FAE; --cake-bottom: #2FD3CC; --icing: #FFFFFF;
+  --plate: #FFFFFF; --plate-edge: #E9BDD2;
+  --candle-a: #FF4C9C; --candle-b: #12C4BD;
+  --frame: #FFFFFF; --frame-ink: #3B1030; --frame-hint: #9A6A89;
+  --shadow: 0 28px 50px -22px rgba(170,20,100,.55), 0 8px 18px -8px rgba(170,20,100,.35);
+  --font-display: "Bagel Fat One", "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B0818; --dot-a: #2B0F27; --dot-b: #0E2C30;
+    --paper: #2A1027; --rule: #47213F; --note-bg: #351732;
+    --ink: #FFEAF4; --ink-soft: #E6B5CF;
+    --pink: #FF6FAE; --pink-soft: #4A1B3F; --accent-text: #FF8FC2;
+    --turq: #2FE0D6; --turq-soft: #123B3F; --turq-text: #62EEE5;
+    --btn-a-bg: #FF6FAE; --btn-a-fg: #2A0A1D;
+    --btn-b-bg: #2FE0D6; --btn-b-fg: #062B2B;
+    --cover: #D42A7E; --cover-ink: #FFFFFF; --cover-shadow: #0A8C8A;
+    --cake-top: #FF7DB6; --cake-bottom: #2FD3CC; --icing: #FFF2F8;
+    --plate: #F5DDEA; --plate-edge: #8D5A7C;
+    --candle-a: #FF6FAE; --candle-b: #2FE0D6;
+    --frame: #F7E8F1;
+    --shadow: 0 28px 50px -22px rgba(0,0,0,.8), 0 8px 18px -8px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B0818; --dot-a: #2B0F27; --dot-b: #0E2C30;
+  --paper: #2A1027; --rule: #47213F; --note-bg: #351732;
+  --ink: #FFEAF4; --ink-soft: #E6B5CF;
+  --pink: #FF6FAE; --pink-soft: #4A1B3F; --accent-text: #FF8FC2;
+  --turq: #2FE0D6; --turq-soft: #123B3F; --turq-text: #62EEE5;
+  --btn-a-bg: #FF6FAE; --btn-a-fg: #2A0A1D;
+  --btn-b-bg: #2FE0D6; --btn-b-fg: #062B2B;
+  --cover: #D42A7E; --cover-ink: #FFFFFF; --cover-shadow: #0A8C8A;
+  --cake-top: #FF7DB6; --cake-bottom: #2FD3CC; --icing: #FFF2F8;
+  --plate: #F5DDEA; --plate-edge: #8D5A7C;
+  --candle-a: #FF6FAE; --candle-b: #2FE0D6;
+  --frame: #F7E8F1;
+  --shadow: 0 28px 50px -22px rgba(0,0,0,.8), 0 8px 18px -8px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  justify-items: center;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(var(--dot-a) 15px, transparent 16px),
+    radial-gradient(var(--dot-b) 10px, transparent 11px);
+  background-size: 104px 104px;
+  background-position: 0 0, 52px 52px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px;
+}
+
+.card { position: relative; width: min(100%, 430px); perspective: 1600px; }
+
+/* ---------- Inside page ---------- */
+.inside {
+  background: var(--paper);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 26px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 10vw, 46px);
+  line-height: 1;
+  color: var(--ink);
+  text-wrap: balance;
+}
+h1:focus { outline: none; }
+.name {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 2px 0 4px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 13vw, 58px);
+  line-height: 1.1;
+  color: var(--accent-text);
+  background: transparent;
+  border: 0;
+  border-bottom: 3px dashed var(--pink);
+  border-radius: 0;
+}
+.name:focus-visible { outline: 3px solid var(--turq); outline-offset: 4px; border-radius: 6px; }
+.aside {
+  margin: 4px 0 0;
+  font-family: var(--font-hand);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent-text);
+  transform: rotate(-2deg);
+  transform-origin: left center;
+}
+.hint { margin: 6px 0 0; font-size: 14px; color: var(--ink-soft); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: var(--turq-soft);
+  border-radius: 999px;
+}
+.tab {
+  min-height: 44px;
+  padding: 10px 4px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--turq-text);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { background: var(--btn-b-bg); color: var(--btn-b-fg); }
+.tab:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 2px; }
+
+.panel { display: flex; flex-direction: column; gap: 14px; min-height: 400px; min-width: 0; }
+
+/* ---------- Cake ---------- */
+.sticker {
+  align-self: center;
+  margin: 0;
+  padding: 4px 16px 6px;
+  font-family: var(--font-hand);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--btn-b-fg);
+  background: var(--btn-b-bg);
+  border-radius: 8px;
+  transform: rotate(-2.5deg);
+}
+.cake { display: block; width: 100%; height: auto; overflow: visible; }
+.cake .plate { fill: var(--plate); stroke: var(--plate-edge); stroke-width: 2; }
+.cake .tier-top { fill: var(--cake-top); }
+.cake .tier-bottom { fill: var(--cake-bottom); }
+.cake .icing { fill: var(--icing); }
+.cake .sp-w { fill: #fff; }
+.cake .sp-p { fill: var(--candle-a); }
+.cake .sp-t { fill: var(--candle-b); }
+.candle.ca { fill: var(--candle-a); }
+.candle.cb { fill: var(--candle-b); }
+.stripe { fill: #fff; opacity: .75; }
+.wick { stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
+.flame-btn { cursor: pointer; outline: none; }
+.out .flame-btn { cursor: default; }
+.hit { fill: transparent; }
+.ring { fill: none; stroke: none; stroke-width: 2.5; }
+.flame-btn:focus-visible .ring { stroke: var(--accent-text); }
+.f1 { fill: var(--flame); stroke: var(--flame-edge); stroke-width: 1; }
+.f2 { fill: var(--flame-core); }
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 1.1s ease-in-out infinite alternate;
+}
+.out .flame { animation: none; transform: scale(0); opacity: 0; transition: transform .25s ease-in, opacity .25s ease-in; }
+.puff { fill: var(--ink-soft); opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; }
+.out .puff { animation: puff 1.3s ease-out; }
+@keyframes flicker {
+  0% { transform: scale(1, 1) rotate(-2deg); }
+  50% { transform: scale(.94, 1.07) rotate(1.5deg); }
+  100% { transform: scale(1.04, .96) rotate(-1deg); }
+}
+@keyframes puff {
+  0% { opacity: .55; transform: translateY(0) scale(.6); }
+  100% { opacity: 0; transform: translateY(-26px) scale(2); }
+}
+
+.status { margin: 0; min-height: 1.5em; text-align: center; font-weight: 500; color: var(--ink-soft); }
+.row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+
+.stepper { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-soft); font-size: 15px; }
+.stepper button {
+  width: 44px; height: 44px;
+  font: 700 22px/1 var(--font-body);
+  color: var(--turq-text);
+  background: transparent;
+  border: 2px solid var(--turq);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.stepper button:disabled { opacity: .4; cursor: not-allowed; }
+.stepper button:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 2px; }
+.stepper output {
+  min-width: 1.5ch;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.btn {
+  min-height: 46px;
+  padding: 12px 20px;
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn:focus-visible { outline: 3px solid var(--turq); outline-offset: 3px; }
+.btn:disabled { opacity: .6; cursor: default; }
+.btn-a { background: var(--btn-a-bg); color: var(--btn-a-fg); }
+.btn-a:hover { filter: brightness(1.08); }
+.btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--rule); padding: 8px 16px; min-height: 44px; }
+.btn-ghost:hover { border-color: var(--pink); }
+
+/* ---------- Note ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  min-height: 40px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--accent-text);
+  background: transparent;
+  border: 2px solid var(--pink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--pink-soft); font-weight: 700; }
+.chip:focus-visible { outline: 3px solid var(--turq); outline-offset: 2px; }
+.note {
+  width: 100%;
+  min-height: 224px;
+  padding: 10px 14px;
+  font-family: var(--font-hand);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--ink);
+  resize: vertical;
+  border: 0;
+  border-radius: 14px;
+  background-color: var(--note-bg);
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+  background-attachment: local;
+  background-position: 0 10px;
+}
+.note:focus-visible { outline: 3px solid var(--turq); outline-offset: 2px; }
+.sig { display: flex; align-items: baseline; gap: 8px; font-family: var(--font-hand); font-size: 28px; font-weight: 700; color: var(--ink-soft); }
+.sig input {
+  flex: 1; min-width: 0;
+  font: inherit;
+  color: var(--accent-text);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dashed var(--turq);
+  border-radius: 0;
+  padding: 0 2px;
+}
+.sig input:focus-visible { outline: 3px solid var(--turq); outline-offset: 3px; border-radius: 4px; }
+.ps { margin: 0; font-family: var(--font-hand); font-size: 26px; font-weight: 700; line-height: 1.15; color: var(--accent-text); }
+
+/* ---------- Millions ---------- */
+.money-lead { margin: 4px 0 0; font-family: var(--font-hand); font-size: 30px; font-weight: 700; line-height: 1.1; color: var(--ink-soft); }
+.money-num { display: flex; flex-direction: column; align-items: flex-start; margin: 0; }
+.money-num #money {
+  font-family: var(--font-display);
+  font-size: clamp(84px, 27vw, 124px);
+  line-height: .95;
+  color: var(--accent-text);
+  text-shadow: 4px 5px 0 var(--turq);
+  font-variant-numeric: tabular-nums;
+}
+.money-unit { font-family: var(--font-display); font-size: 26px; color: var(--turq-text); }
+.money-cap { margin: 0; min-height: 3em; font-weight: 500; color: var(--ink); }
+#money-btn { align-self: flex-start; }
+
+/* ---------- Album ---------- */
+.panel.drag { outline: 3px dashed var(--pink); outline-offset: 6px; border-radius: 14px; }
+.album-add { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.album-add .btn { display: inline-flex; align-items: center; }
+#file:focus-visible + .btn { outline: 3px solid var(--turq); outline-offset: 3px; }
+.small { margin: 0; font-size: 13px; line-height: 1.4; color: var(--ink-soft); }
+.album-note { margin: 0; min-height: 1.5em; font-weight: 500; color: var(--ink-soft); }
+.album { list-style: none; margin: 0; padding: 10px 2px 4px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 14px; }
+.shot {
+  position: relative;
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 0;
+  padding: 8px 8px 6px;
+  background: var(--frame);
+  border-radius: 6px;
+  box-shadow: 0 8px 16px -8px rgba(120, 20, 80, .5);
+  transform: rotate(var(--tilt, 0deg));
+}
+.shot::before {
+  content: ""; position: absolute; top: -9px; left: 50%;
+  width: 54px; height: 18px; margin-left: -27px;
+  background: var(--turq); opacity: .85; border-radius: 2px;
+  transform: rotate(-3deg); pointer-events: none;
+}
+.shot:nth-child(even)::before { background: var(--pink); transform: rotate(4deg); }
+.shot img, .shot video { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 3px; background: #E7D3DE; }
+.shot video { object-fit: contain; background: #000; }
+.photo { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.photo:focus-visible { outline: 3px solid #0A7270; outline-offset: 2px; }
+.cap, .cap-text {
+  width: 100%; min-height: 30px; margin: 0; padding: 2px 2px 4px;
+  font-family: var(--font-hand); font-size: 21px; line-height: 1.2; text-align: center;
+  color: var(--frame-ink); background: transparent;
+  border: 0; border-bottom: 1.5px dashed transparent; border-radius: 0;
+}
+.cap::placeholder { color: var(--frame-hint); }
+.cap:hover, .cap:focus-visible { border-bottom-color: #D61C73; outline: none; }
+.cap-text:empty { display: none; }
+.rm {
+  position: absolute; top: -12px; right: -10px; z-index: 2;
+  min-width: 36px; height: 36px; padding: 0;
+  font: 700 20px/1 var(--font-body);
+  color: var(--btn-a-fg); background: var(--btn-a-bg);
+  border: 0; border-radius: 999px; cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.rm.confirm { padding: 0 12px; font-size: 13px; }
+.rm:focus-visible { outline: 3px solid var(--turq); outline-offset: 2px; }
+.rm:disabled { opacity: .5; cursor: default; }
+
+.lightbox {
+  position: fixed; inset: 0; z-index: 40;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: calc(56px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: rgba(30, 6, 26, .92);
+}
+.lightbox img { max-width: 100%; max-height: 78vh; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 50px rgba(0, 0, 0, .5); }
+.lb-cap { margin: 0; font-family: var(--font-hand); font-size: 26px; color: #FFE9F3; text-align: center; }
+.lb-cap:empty { display: none; }
+.lb-close {
+  position: absolute; top: calc(10px + env(safe-area-inset-top, 0px)); right: max(10px, env(safe-area-inset-right, 0px));
+  width: 44px; height: 44px; font: 700 26px/1 var(--font-body);
+  color: #fff; background: rgba(255, 255, 255, .16); border: 0; border-radius: 50%; cursor: pointer;
+}
+.lb-close:focus-visible { outline: 3px solid var(--turq); outline-offset: 2px; }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-top: 2px; }
+
+/* ---------- Cover ---------- */
+.cover {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 24px;
+  margin: 0; padding: 0;
+  overflow: hidden;
+  font: inherit;
+  color: var(--cover-ink);
+  border: 0;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: var(--cover);
+  background-image: radial-gradient(rgba(255,255,255,.16) 7px, transparent 8px);
+  background-size: 44px 44px;
+  box-shadow: var(--shadow);
+  transform-origin: left center;
+  transition: transform .9s cubic-bezier(.55, 0, .2, 1), opacity .5s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.card:not(.open) .cover:hover { transform: rotateY(-8deg); }
+.cover:focus-visible { outline: 4px solid var(--turq); outline-offset: 4px; }
+.card.open .cover {
+  transform: rotateY(-108deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .9s cubic-bezier(.55, 0, .2, 1), opacity .5s ease .35s, visibility 0s .9s;
+}
+.cover-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cover-title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 14vw, 62px);
+  line-height: .95;
+  text-align: center;
+  text-wrap: balance;
+  transform: rotate(-4deg);
+  text-shadow: 4px 5px 0 var(--cover-shadow);
+}
+.cover-pill {
+  position: relative;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--btn-b-fg);
+  background: var(--btn-b-bg);
+  border-radius: 999px;
+}
+.balloon { transform-box: fill-box; transform-origin: 50% 100%; animation: bob 4s ease-in-out infinite alternate; }
+@keyframes bob {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cover, .card.open .cover { transition: opacity .3s ease; transform: none; }
+  .card:not(.open) .cover:hover { transform: none; }
+  .flame, .balloon, .out .puff { animation: none; }
+}
+</style>
+
+</head>
+<body>
+<main class="card" id="card">
+  <section class="inside" id="inside" inert>
+    <header>
+      <h1 id="hello" tabindex="-1">Joyeux anniversaire,</h1>
+      <label class="sr" for="name">Prénom de la personne fêtée</label>
+      <input class="name" id="name" type="text" value="Lucindaaa!!!!!" maxlength="22" autocomplete="off" spellcheck="false">
+      <p class="aside">(20 babyyyyyy)</p>
+      <p class="hint"></p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Sections de la carte">
+      <button class="tab" role="tab" id="tab-wish" aria-selected="true" aria-controls="panel-wish" type="button">Vœu</button>
+      <button class="tab" role="tab" id="tab-note" aria-selected="false" aria-controls="panel-note" tabindex="-1" type="button">Mot</button>
+      <button class="tab" role="tab" id="tab-money" aria-selected="false" aria-controls="panel-money" tabindex="-1" type="button">Millions</button>
+      <button class="tab" role="tab" id="tab-album" aria-selected="false" aria-controls="panel-album" tabindex="-1" type="button">Album</button>
+    </div>
+
+    <div class="panel" id="panel-wish" role="tabpanel" aria-labelledby="tab-wish">
+      <p class="sticker">20 ans et tous tes dents</p>
+      <svg class="cake" viewBox="0 0 320 250" aria-label="Gâteau d'anniversaire avec des bougies">
+        <ellipse class="plate" cx="160" cy="226" rx="148" ry="13"/>
+        <rect class="tier-bottom" x="40" y="150" width="240" height="68" rx="8"/>
+        <path class="icing" d="M40 150H280V162 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0Z"/>
+        <g transform="translate(62 186) rotate(20)"><rect class="sp-w" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(100 199) rotate(-30)"><rect class="sp-p" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(140 184) rotate(45)"><rect class="sp-w" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(190 197) rotate(10)"><rect class="sp-p" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(230 185) rotate(-20)"><rect class="sp-w" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(259 201) rotate(35)"><rect class="sp-p" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <rect class="tier-top" x="80" y="100" width="160" height="52" rx="6"/>
+        <path class="icing" d="M80 100H240V112 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0 a10 10 0 0 1 -20 0Z"/>
+        <g transform="translate(102 133) rotate(-25)"><rect class="sp-w" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(142 141) rotate(30)"><rect class="sp-t" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(180 131) rotate(-10)"><rect class="sp-w" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g transform="translate(216 142) rotate(40)"><rect class="sp-t" x="-4.5" y="-1.75" width="9" height="3.5" rx="1.75"/></g>
+        <g id="candles"></g>
+      </svg>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <div class="row">
+        <div class="stepper" role="group" aria-label="Nombre de bougies">
+          <button type="button" id="less" aria-label="Moins de bougies">&minus;</button>
+          <output id="count" aria-live="polite">5</output>
+          <span>bougies</span>
+          <button type="button" id="more" aria-label="Plus de bougies">+</button>
+        </div>
+        <button class="btn btn-a" id="blow" type="button">Souffler (fort)</button>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-note" role="tabpanel" aria-labelledby="tab-note" hidden>
+      <div class="chips" role="group" aria-label="Style du message">
+        <button class="chip" type="button" data-m="daronne" aria-pressed="true">Mot</button>
+      </div>
+      <label class="sr" for="note"></label>
+      <textarea class="note" id="note" rows="7">Joyeux anniversaire Lucindaaaa!!!! Tu as enfin 20 ans! Ça veut dire que tu es presqueeee à l'âge de la retraite. Au cas où tu ne le sais pas encore: on t'aime fort et tu nous manques à Montréal.</textarea>
+      <div class="sig">
+        <span>Xoxo,</span>
+        <label class="sr" for="from">les 3Bs</label>
+        <input id="from" type="text" value="les bees(ties)" maxlength="24" autocomplete="off" spellcheck="false">
+      </div>
+      <p class="ps">P.S. l'année prochaine on va à Las Vegas (c'est non négotiable)</p>
+    </div>
+
+    <div class="panel" id="panel-money" role="tabpanel" aria-labelledby="tab-money" hidden>
+      <p class="money-lead">Dans 10 ans, <span id="money-name">Lucinda</span> aura fait</p>
+      <p class="money-num"><span id="money">42</span><span class="money-unit">millions de dollars</span></p>
+      <p class="money-cap" id="money-cap">Prédiction 100 % scientifique. Marge d'erreur: ± 100 %.</p>
+      <span class="sr" id="money-sr" aria-live="polite"></span>
+      <button class="btn btn-a" id="money-btn" type="button">Consulter la boule de cristal</button>
+      <p class="small"></p>
+    </div>
+
+    <div class="panel" id="panel-album" role="tabpanel" aria-labelledby="tab-album" hidden>
+      <p class="album-note" id="album-note" aria-live="polite"></p>
+      <ul class="album" id="album" aria-label="Photos et vidéos"></ul>
+    </div>
+
+    <footer class="foot">
+      <button class="btn btn-ghost" id="pop" type="button">Lancer des confettis</button>
+      <button class="btn btn-ghost" id="close" type="button">Fermer la carte</button>
+    </footer>
+  </section>
+
+  <button class="cover" id="cover" type="button" aria-label="Ouvrir la carte d'anniversaire" aria-expanded="false">
+    <svg class="cover-art" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path d="M-10 36 Q200 120 410 36" fill="none" stroke="#fff" stroke-width="2.5" opacity=".9"/>
+      <g id="bunting"></g>
+      <g class="balloon" style="animation-delay:-1s">
+        <g transform="translate(78 585)">
+          <path d="M0 42 C-8 85 8 105 0 150" fill="none" stroke="#fff" stroke-width="1.8" opacity=".85"/>
+          <ellipse rx="34" ry="42" fill="#12C4BD"/>
+          <path d="M-5 41 L5 41 L0 49Z" fill="#12C4BD"/>
+          <ellipse cx="-11" cy="-14" rx="7" ry="11" fill="#fff" opacity=".4" transform="rotate(20 -11 -14)"/>
+        </g>
+      </g>
+      <g class="balloon" style="animation-delay:-2.2s">
+        <g transform="translate(322 600)">
+          <path d="M0 42 C8 85 -8 105 0 150" fill="none" stroke="#fff" stroke-width="1.8" opacity=".85"/>
+          <ellipse rx="32" ry="40" fill="#FFD6E8"/>
+          <path d="M-5 39 L5 39 L0 47Z" fill="#FFD6E8"/>
+          <ellipse cx="-10" cy="-13" rx="6.5" ry="10" fill="#fff" opacity=".6" transform="rotate(20 -10 -13)"/>
+        </g>
+      </g>
+      <g class="balloon" style="animation-delay:-3.1s">
+        <g transform="translate(200 640)">
+          <path d="M0 40 C-6 80 6 100 0 140" fill="none" stroke="#fff" stroke-width="1.8" opacity=".85"/>
+          <ellipse rx="28" ry="35" fill="#7FE8E3"/>
+          <path d="M-4 34 L4 34 L0 41Z" fill="#7FE8E3"/>
+          <ellipse cx="-9" cy="-11" rx="5.5" ry="9" fill="#fff" opacity=".5" transform="rotate(20 -9 -11)"/>
+        </g>
+      </g>
+    </svg>
+    <span class="cover-title">Ouvre-moi</span>
+    <span class="cover-pill">Appuie ici queen</span>
+  </button>
+</main>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+  <button class="lb-close" id="lb-close" type="button" aria-label="Fermer la photo">&times;</button>
+  <img id="lb-img" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var $ = function (s) { return document.querySelector(s); };
+  var calm = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+
+  var card = $('#card'), cover = $('#cover'), inside = $('#inside');
+  var nameEl = $('#name'), statusEl = $('#status'), candlesG = $('#candles');
+  var countEl = $('#count'), blowBtn = $('#blow'), lessBtn = $('#less'), moreBtn = $('#more');
+
+  /* ---------- Cover bunting ---------- */
+  (function bunting() {
+    var g = $('#bunting');
+    var P0 = [-10, 36], P1 = [200, 120], P2 = [410, 36];
+    var cols = ['#FFD6E8', '#12C4BD', '#FFFFFF', '#7FE8E3'];
+    var N = 9;
+    for (var i = 0; i < N; i++) {
+      var t = (i + 0.5) / N, u = 1 - t;
+      var x = u * u * P0[0] + 2 * u * t * P1[0] + t * t * P2[0];
+      var y = u * u * P0[1] + 2 * u * t * P1[1] + t * t * P2[1];
+      var dx = 2 * u * (P1[0] - P0[0]) + 2 * t * (P2[0] - P1[0]);
+      var dy = 2 * u * (P1[1] - P0[1]) + 2 * t * (P2[1] - P1[1]);
+      var a = Math.atan2(dy, dx) * 180 / Math.PI;
+      var p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', 'M-15 0 L15 0 L0 36Z');
+      p.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + a.toFixed(1) + ')');
+      p.setAttribute('fill', cols[i % cols.length]);
+      g.appendChild(p);
+    }
+  })();
+
+  /* ---------- Confetti ---------- */
+  var cv = $('#confetti'), ctx = cv.getContext('2d');
+  var W = 0, H = 0, parts = [], raf = 0, last = 0;
+  var COLORS = ['#FF4C9C', '#FFA8D0', '#D61C73', '#12C4BD', '#7FE8E3', '#0A9C9A', '#FFC52E'];
+
+  function fit() {
+    var d = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * d); cv.height = Math.round(H * d);
+    ctx.setTransform(d, 0, 0, d, 0, 0);
+  }
+  function add(x, y, vx, vy) {
+    parts.push({
+      x: x, y: y, vx: vx, vy: vy,
+      w: 6 + Math.random() * 7, h: 4 + Math.random() * 5,
+      rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.35,
+      flip: Math.random() * 6.28, vf: 0.08 + Math.random() * 0.15,
+      c: COLORS[(Math.random() * COLORS.length) | 0],
+      round: Math.random() < 0.25
+    });
+  }
+  function burst(x, y, count) {
+    if (calm()) return;
+    for (var i = 0; i < count; i++) {
+      var a = -Math.PI / 2 + (Math.random() - 0.5) * 2.2;
+      var s = 6 + Math.random() * 10;
+      add(x, y, Math.cos(a) * s, Math.sin(a) * s);
+    }
+    run();
+  }
+  function rain(count) {
+    if (calm()) return;
+    for (var i = 0; i < count; i++) {
+      add(Math.random() * W, -20 - Math.random() * H * 0.5, (Math.random() - 0.5) * 2, 2 + Math.random() * 3);
+    }
+    run();
+  }
+  function run() {
+    if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); }
+  }
+  function tick(t) {
+    var dt = Math.min(2, (t - last) / 16.67);
+    last = t;
+    ctx.clearRect(0, 0, W, H);
+    var drag = Math.pow(0.95, dt);
+    parts = parts.filter(function (p) { return p.y < H + 30; });
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.vx *= drag;
+      p.vy = p.vy * drag + 0.22 * dt;
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      p.rot += p.vr * dt; p.flip += p.vf * dt;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.scale(1, Math.cos(p.flip));
+      ctx.fillStyle = p.c;
+      if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.w / 2.2, 0, 6.283); ctx.fill(); }
+      else { ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); }
+      ctx.restore();
+    }
+    raf = parts.length ? requestAnimationFrame(tick) : 0;
+  }
+  fit();
+  window.addEventListener('resize', fit);
+
+  /* ---------- Open and close ---------- */
+  function openCard() {
+    card.classList.add('open');
+    inside.removeAttribute('inert');
+    cover.setAttribute('aria-expanded', 'true');
+    setTimeout(function () {
+      var r = card.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top + r.height * 0.45, 90);
+    }, 350);
+    setTimeout(function () { $('#hello').focus({ preventScroll: true }); }, 950);
+  }
+  function closeCard() {
+    if (tabs.length) pick(tabs[0]);
+    card.classList.remove('open');
+    inside.setAttribute('inert', '');
+    cover.setAttribute('aria-expanded', 'false');
+    cover.focus({ preventScroll: true });
+  }
+  cover.addEventListener('click', openCard);
+  $('#close').addEventListener('click', closeCard);
+
+  /* ---------- Name ---------- */
+  function who() { return (nameEl.value || '').trim() || 'toi'; }
+  nameEl.addEventListener('focus', function () { nameEl.select(); });
+  nameEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') nameEl.blur(); });
+  nameEl.addEventListener('blur', function () { if (!nameEl.value.trim()) nameEl.value = 'Lucinda !!!!!!!1'; });
+
+  /* ---------- Cake and candles ---------- */
+  var n = 5, state = [], gen = 0;
+
+  function setStatus(t) { statusEl.textContent = t; }
+  function litCount() { return state.filter(Boolean).length; }
+
+  function render() {
+    gen++;
+    candlesG.textContent = '';
+    state = [];
+    for (var i = 0; i < n; i++) {
+      state.push(true);
+      var x = 94 + (i + 0.5) * (132 / n);
+      var g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'cg');
+      g.innerHTML =
+        '<rect class="candle ' + (i % 2 ? 'cb' : 'ca') + '" x="' + (x - 3.5) + '" y="64" width="7" height="36" rx="2"/>' +
+        '<rect class="stripe" x="' + (x - 3.5) + '" y="72" width="7" height="3"/>' +
+        '<rect class="stripe" x="' + (x - 3.5) + '" y="84" width="7" height="3"/>' +
+        '<line class="wick" x1="' + x + '" y1="64" x2="' + x + '" y2="59"/>' +
+        '<g class="flame-btn" role="button" tabindex="0" aria-label="Bougie ' + (i + 1) + ' sur ' + n + ', allumée. Appuie pour souffler." transform="translate(' + x + ' 59)">' +
+          '<circle class="hit" r="15" cy="-11"/>' +
+          '<circle class="ring" r="15" cy="-11"/>' +
+          '<g class="flame" style="animation-delay:' + (-i * 0.23).toFixed(2) + 's">' +
+            '<path class="f1" d="M0 -22 C6 -13 7.5 -5 0 1.5 C-7.5 -5 -6 -13 0 -22Z"/>' +
+            '<path class="f2" d="M0 -12 C3 -8 3.8 -4 0 0 C-3.8 -4 -3 -8 0 -12Z"/>' +
+          '</g>' +
+          '<circle class="puff" r="4" cy="-14"/>' +
+        '</g>';
+      candlesG.appendChild(g);
+      (function (idx, grp) {
+        var btn = grp.querySelector('.flame-btn');
+        btn.addEventListener('click', function () { snuff(idx); });
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); snuff(idx); }
+        });
+      })(i, g);
+    }
+    countEl.textContent = n;
+    lessBtn.disabled = n <= 1;
+    moreBtn.disabled = n >= 9;
+    blowBtn.textContent = 'Souffler';
+    setStatus('Touche une flamme, ou souffle tout.');
+  }
+
+  function snuff(i) {
+    if (!state[i]) return;
+    state[i] = false;
+    var g = candlesG.children[i];
+    g.classList.add('out');
+    g.querySelector('.flame-btn').setAttribute('aria-label', 'Bougie ' + (i + 1) + ' sur ' + n + ', éteinte.');
+    var left = litCount();
+    if (left === 0) {
+      blowBtn.textContent = 'Rallumer';
+      setStatus('Tout est éteint. Fais un vœu, ' + who() + '.');
+      celebrate();
+    } else {
+      setStatus(left + (left === 1 ? ' bougie encore allumée.' : ' bougies encore allumées.'));
+    }
+  }
+
+  function celebrate() {
+    var r = $('.cake').getBoundingClientRect();
+    burst(r.left + r.width * 0.3, r.top + r.height * 0.3, 60);
+    burst(r.left + r.width * 0.7, r.top + r.height * 0.3, 60);
+    rain(80);
+  }
+
+  blowBtn.addEventListener('click', function () {
+    if (litCount() === 0) { render(); return; }
+    var my = gen, d = 0;
+    state.forEach(function (on, i) {
+      if (!on) return;
+      setTimeout(function () { if (my === gen) snuff(i); }, d);
+      d += calm() ? 0 : 110;
+    });
+  });
+  lessBtn.addEventListener('click', function () { n = Math.max(1, n - 1); render(); });
+  moreBtn.addEventListener('click', function () { n = Math.min(9, n + 1); render(); });
+
+  $('#pop').addEventListener('click', function (e) {
+    var r = e.currentTarget.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top, 70);
+    rain(100);
+  });
+
+  /* ---------- Tabs ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function pick(t) {
+    tabs.forEach(function (b) {
+      var on = b === t;
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, idx) {
+    t.addEventListener('click', function () { pick(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var step = e.key === 'ArrowRight' ? 1 : tabs.length - 1;
+      var nx = tabs[(idx + step) % tabs.length];
+      pick(nx); nx.focus();
+    });
+  });
+
+  /* ---------- Note ---------- */
+  var MSG = {
+    mot: "Joyeux anniversaire Lucindaaaa!!!! Tu as enfin 20 ans! Ça veut dire que tu es presqueeee à l'âge de la retraite. Au cas où tu ne le sais pas encore: on t'aime fort et tu nous manques à Montréal.",
+  };
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      $('#note').value = MSG[c.getAttribute('data-m')];
+    });
+  });
+
+  /* ---------- Millions ---------- */
+  var moneyEl = $('#money'), moneyCap = $('#money-cap'), moneyBtn = $('#money-btn');
+  var moneyName = $('#money-name'), moneySr = $('#money-sr');
+  var CAPS = [
+    "Pas mal. Ça paie le gâteau de l'an prochain et un coussin chauffant.",
+    "Tu nous invites tous au resto. Tout le temps. Pour toujours.",
+    "On veut un chalet, un yacht, ou les deux. T'as pas le choix, daronne."
+  ];
+  var rolling = false;
+  function fmt(v) { return v.toLocaleString('fr-CA'); }
+  function predict() {
+    if (rolling) return;
+    var res = 20 + Math.floor(Math.random() * 480);
+    var tier = res < 100 ? 0 : res < 250 ? 1 : 2;
+    moneyName.textContent = who();
+    function land() {
+      moneyEl.textContent = fmt(res);
+      moneyCap.textContent = CAPS[tier];
+      moneySr.textContent = who() + ' aura fait ' + res + ' millions de dollars dans 10 ans.';
+      rolling = false;
+      moneyBtn.disabled = false;
+      moneyBtn.textContent = 'Re-consulter la boule de cristal';
+      var r = moneyEl.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top, 80);
+    }
+    if (calm()) { land(); return; }
+    rolling = true;
+    moneyBtn.disabled = true;
+    moneyCap.textContent = 'La boule de cristal réfléchit...';
+    var ticks = 0;
+    var iv = setInterval(function () {
+      moneyEl.textContent = fmt(10 + Math.floor(Math.random() * 990));
+      ticks++;
+      if (ticks >= 22) { clearInterval(iv); land(); }
+    }, 65);
+  }
+  moneyBtn.addEventListener('click', predict);
+
+  /* ---------- Album ----------
+     Put your photos and videos in a folder next to this file (for example photos/)
+     and list them below. type is "image" (default) or "video". caption is optional. */
+  var PHOTOS = [
+     // { src: 'lucinda-card/photos/andrea.mp4', type: 'video', caption: 'andrea qui te dit happy birthday' }
+    // { src: 'lucinda-card/photos/usa.jpg', caption: 'cimf core' },
+    // { src: 'lucinda-card/photos/tremblant.jpg', caption: 'good ol days' },
+    // { src: 'lucinda-card/photos/help.jpg', caption: 'en train de crever' },
+    // { src: 'lucinda-card/photos/a4.jpg', caption: 'photo de famille' },
+    // { src: 'lucinda-card/photos/lol.jpg', caption: 'we cold asf' },
+    // { src: 'lucinda-card/photos/paris.jpg', caption: 'baddies talk 2 me' },
+    // { src: 'lucinda-card/photos/help.udem', caption: 'en train de manger un hotdog par terre ' },
+  ];
+
+  var albumEl = $('#album'), albumNote = $('#album-note');
+  var lb = $('#lightbox'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbClose = $('#lb-close'), lbFrom = null;
+
+  function openLightbox(caption, src) {
+    lbFrom = document.activeElement;
+    lbImg.src = src; lbImg.alt = caption || "Photo d'anniversaire"; lbCap.textContent = caption || '';
+    lb.hidden = false;
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (lb.hidden) return;
+    lb.hidden = true; lbImg.removeAttribute('src');
+    if (lbFrom && lbFrom.focus) lbFrom.focus();
+  }
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLightbox(); });
+  lb.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+  PHOTOS.forEach(function (p, i) {
+    var li = document.createElement('li');
+    li.className = 'shot';
+    li.style.setProperty('--tilt', (((i % 4) - 1.5) * 1.2).toFixed(1) + 'deg');
+    var media;
+    if (p.type === 'video') {
+      media = document.createElement('video');
+      media.src = p.src; media.controls = true; media.playsInline = true; media.preload = 'metadata';
+      media.setAttribute('aria-label', 'Vidéo');
+    } else {
+      media = document.createElement('button');
+      media.type = 'button'; media.className = 'photo';
+      media.setAttribute('aria-label', 'Agrandir la photo');
+      var img = document.createElement('img');
+      img.src = p.src; img.alt = p.caption || "Photo d'anniversaire"; img.loading = 'lazy';
+      media.appendChild(img);
+      media.addEventListener('click', function () { openLightbox(p.caption, p.src); });
+    }
+    li.appendChild(media);
+    var cap = document.createElement('p');
+    cap.className = 'cap-text';
+    cap.textContent = p.caption || '';
+    li.appendChild(cap);
+    albumEl.appendChild(li);
+  });
+  albumNote.textContent = PHOTOS.length
+    ? (PHOTOS.length === 1 ? '1 photo ou vidéo' : PHOTOS.length + ' photos et vidéos')
+    : "Aucune photo ou vidéo pour l'instant.";
+
+  render();
+})();
+</script>
+</body>
+</html>
